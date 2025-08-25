@@ -1,4 +1,3 @@
-
 function addToCart(id, name, price) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   let item = cart.find(i => i.id === id);
