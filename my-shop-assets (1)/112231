@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+    function togglePassword() {
+      const passwordInput = document.getElementById('password');
+      const icon = document.getElementById('password-icon');
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        icon.textContent = 'visibility_off';
+      } else {
+        passwordInput.type = 'password';
+        icon.textContent = 'visibility';
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .trading-grid-overlay {
+      background-size: 40px 40px;
+      background-image: linear-gradient(to right, #1e293b 1px, transparent 1px), linear-gradient(to bottom, #1e293b 1px, transparent 1px);
+      mask-image: radial-gradient(circle at center, black, transparent 80%);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<!-- TopAppBar from JSON -->
+<header class="fixed top-0 left-0 w-full flex justify-between items-center px-6 h-16 bg-slate-950/90 backdrop-blur-md border-b border-slate-800 z-50">
+<div class="text-xl font-bold tracking-tighter text-slate-50">TITAN CORE</div>
+<nav class="hidden md:flex items-center gap-8 font-inter text-sm font-medium tracking-wide">
+<a class="text-slate-400 hover:text-slate-200 hover:bg-slate-900/50 transition-colors duration-200" href="#">Markets</a>
+<a class="text-slate-400 hover:text-slate-200 hover:bg-slate-900/50 transition-colors duration-200" href="#">Learn</a>
+<a class="text-slate-400 hover:text-slate-200 hover:bg-slate-900/50 transition-colors duration-200" href="#">Support</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="font-inter text-sm font-medium tracking-wide text-emerald-500 hover:bg-slate-900/50 px-4 py-2 transition-colors duration-200">Create Account</button>
+</div>
+</header>
+<!-- Login Main Content -->
+<main class="flex-grow flex items-center justify-center relative pt-24 pb-12 px-margin">
+<!-- Background Treatment -->
+<div class="absolute inset-0 z-0 trading-grid-overlay opacity-20"></div>
+<div class="absolute inset-0 z-0 bg-gradient-to-tr from-surface-container-lowest via-background to-surface-container-low opacity-60"></div>
+<!-- Login Card -->
+<div class="relative z-10 w-full max-w-[440px] bg-surface-container-low p-xl border border-outline-variant shadow-2xl rounded-xl">
+<div class="flex flex-col items-center mb-lg">
+<div class="mb-sm text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="font-display-lg text-metric-xl tracking-tighter text-on-background">TradeLogic</span>
+</div>
+<h1 class="font-headline-md text-headline-md text-on-background mt-sm">Sign In</h1>
+<p class="font-body-md text-on-surface-variant text-center mt-xs">Access your institutional trading dashboard</p>
+</div>
+<!-- Social Login -->
+<button class="w-full flex items-center justify-center gap-3 py-md px-lg bg-surface-container-high border border-outline-variant hover:bg-surface-bright transition-colors rounded-lg mb-md">
+<img alt="Google logo" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApLZBDZ43EDQkku_ued6GQYiiAZe0q0bf_Ihtfxz2SqIVMstxT8DWyh3xKocwrkRj039lIswwBF__1ecAoAhLV5VzUtXheBW3x4nnMt8ssClN5sOSw6LaRLhChzuMgPzt8AHMTLy44eTeK1AAytc61-VGcypP1KiS3FLLotdqGxUdaiOEmavbk8-DY5gz3rDqW4O3ayNd8XN55sZ4KyLCOAyikoTCA0qx4gRtsyfpPZa7J_Td6cvGvODOW2aTOiSxHbn8TA8bzKJM"/>
+<span class="font-label-sm text-on-surface">Sign in with Google</span>
+</button>
+<div class="flex items-center gap-4 mb-md">
+<div class="flex-grow h-[1px] bg-outline-variant"></div>
+<span class="font-label-sm text-outline uppercase tracking-widest text-[10px]">OR</span>
+<div class="flex-grow h-[1px] bg-outline-variant"></div>
+</div>
+<!-- Login Form -->
+<form class="space-y-lg">
+<div>
+<label class="block font-label-sm text-on-surface-variant mb-xs ml-xs">Email Address</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline">mail</span>
+<input class="w-full pl-xl pr-md py-md bg-surface-container-lowest border border-outline-variant focus:border-primary focus:ring-0 rounded-lg text-on-surface placeholder:text-outline transition-all outline-none" placeholder="name@company.com" type="email"/>
+</div>
+</div>
+<div>
+<label class="block font-label-sm text-on-surface-variant mb-xs ml-xs">Password</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline">lock</span>
+<input class="w-full pl-xl pr-xl py-md bg-surface-container-lowest border border-outline-variant focus:border-primary focus:ring-0 rounded-lg text-on-surface placeholder:text-outline transition-all outline-none" placeholder="••••••••" type="password"/>
+<button class="absolute right-md top-1/2 -translate-y-1/2 text-outline hover:text-on-surface" type="button" onclick="togglePassword()">
+<span class="material-symbols-outlined" id="password-icon">visibility</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="w-4 h-4 rounded-sm bg-surface-container-lowest border-outline-variant text-primary focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<span class="font-label-sm text-on-surface-variant group-hover:text-on-surface">Remember me</span>
+</label>
+<a class="font-label-sm text-primary hover:underline" href="#">Forgot Password?</a>
+</div>
+<button class="w-full py-md bg-primary-container hover:bg-primary-container/90 text-on-primary-container font-headline-md text-body-lg rounded-lg transition-all active:scale-[0.98] shadow-lg shadow-primary-container/20" type="submit">
+          Sign In
+        </button>
+</form>
+<div class="mt-xl text-center">
+<p class="font-body-md text-on-surface-variant">
+          Don't have an account? 
+          <a class="text-primary font-label-sm hover:underline ml-xs" href="#">Sign Up</a>
+</p>
+</div>
+</div>
+</main>
+<!-- Footer from JSON -->
+<footer class="w-full py-12 px-8 flex flex-col md:flex-row justify-between items-center gap-6 bg-slate-950 border-t border-slate-900">
+<div class="text-sm font-black text-slate-400">TITAN CORE</div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="font-inter text-xs text-slate-600 hover:text-emerald-400 transition-colors" href="#">Privacy Policy</a>
+<a class="font-inter text-xs text-slate-600 hover:text-emerald-400 transition-colors" href="#">Terms of Service</a>
+<a class="font-inter text-xs text-slate-600 hover:text-emerald-400 transition-colors" href="#">Risk Disclosure</a>
+<a class="font-inter text-xs text-slate-600 hover:text-emerald-400 transition-colors" href="#">Contact</a>
+</div>
+<div class="font-inter text-xs text-slate-500 text-center">
+      © 2024 Titan Core Financial Markets. Secure 256-bit SSL Encrypted.
+    </div>
+</footer>
+</body></html>
+ id="password"
